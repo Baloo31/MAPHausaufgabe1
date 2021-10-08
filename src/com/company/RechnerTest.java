@@ -32,6 +32,12 @@ class RechnerTest {
 
     @Test
     void berechneMultiplikation() {
+        rechner = new Rechner();
+        ArrayList<Integer> zahlEins = new ArrayList<>(Arrays.asList(2,3,6,0,0,0,0,0,0));
+        Assertions.assertEquals(Arrays.asList(4,7,2,0,0,0,0,0,0), rechner.berechneMultiplikation(zahlEins, 2));
+
+        ArrayList<Integer> zahlEins2 = new ArrayList<>(Arrays.asList(9,9,9));
+        Assertions.assertEquals(Arrays.asList(8,9,9,1), rechner.berechneMultiplikation(zahlEins2, 9));
     }
 
     @Test

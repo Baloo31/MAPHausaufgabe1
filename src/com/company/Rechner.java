@@ -1,7 +1,6 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Rechner {
 
@@ -35,7 +34,6 @@ public class Rechner {
             if (ZahlEins.get(idx) - ZahlZwei.get(idx) - borrow < 0){
                 result.set(idx, (10 + ZahlEins.get(idx) - ZahlZwei.get(idx) - borrow));
                 borrow = 1;
-
             } else {
                 result.set(idx, (ZahlEins.get(idx) - ZahlZwei.get(idx) - borrow));
                 borrow = 0;
@@ -44,11 +42,25 @@ public class Rechner {
         return result;
     }
 
-    public ArrayList<Byte> berechneMultiplikation(ArrayList<Byte> ZahlEins, byte zahlZwei){
-        return new ArrayList<>();
+    public ArrayList<Integer> berechneMultiplikation(ArrayList<Integer> ZahlEins, int zahlZwei){
+        ArrayList<Integer> result = new ArrayList<>();
+        for (int idx = 0; idx < ZahlEins.size(); idx++){
+            result.add(0);
+        }
+        int carry = 0;
+
+        for (int idx = ZahlEins.size() - 1; idx >= 0; idx--){
+            result.set(idx, (ZahlEins.get(idx) * zahlZwei + carry) % 10);
+            carry = ((ZahlEins.get(idx) * zahlZwei + carry) / 10);
+        }
+        if (carry != 0){
+            result.add(0, carry);
+        }
+
+        return result;
     }
 
-    public ArrayList<Byte> berechneDivision(ArrayList<Byte> ZahlEins, byte zahlZwei){
+    public ArrayList<Byte> berechneDivision(ArrayList<Integer> ZahlEins, int zahlZwei){
         return new ArrayList<>();
     }
 }
