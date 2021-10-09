@@ -2,8 +2,6 @@ package com.company;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.net.Inet4Address;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -42,5 +40,11 @@ class RechnerTest {
 
     @Test
     void berechneDivision() {
+        rechner = new Rechner();
+        ArrayList<Integer> zahlEins = new ArrayList<>(Arrays.asList(4,5,8,0,0,0,0,0,0));
+        Assertions.assertEquals(Arrays.asList(5,0,8,8,8,8,8,8), rechner.berechneDivision(zahlEins, 9));
+
+        ArrayList<Integer> zahlEins2 = new ArrayList<>(Arrays.asList(2,3,6,0,0,0,0,0,0));
+        Assertions.assertEquals(Arrays.asList(1,1,8,0,0,0,0,0,0), rechner.berechneDivision(zahlEins2, 2));
     }
 }

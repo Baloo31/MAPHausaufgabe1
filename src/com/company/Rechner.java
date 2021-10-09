@@ -60,7 +60,19 @@ public class Rechner {
         return result;
     }
 
-    public ArrayList<Byte> berechneDivision(ArrayList<Integer> ZahlEins, int zahlZwei){
-        return new ArrayList<>();
+    public ArrayList<Integer> berechneDivision(ArrayList<Integer> ZahlEins, int zahlZwei){
+        ArrayList<Integer> result = new ArrayList<>();
+        for (int idx = 0; idx < ZahlEins.size(); idx++){
+            result.add(0);
+        }
+        int carry = 0;
+        for (int idx = 0; idx < result.size(); idx++){
+            result.set(idx, (carry*10 + ZahlEins.get(idx)) / zahlZwei);
+            carry = (carry*10 + ZahlEins.get(idx)) % zahlZwei;
+        }
+        if (result.get(0) == 0){
+            result.remove(0);
+        }
+        return result;
     }
 }
