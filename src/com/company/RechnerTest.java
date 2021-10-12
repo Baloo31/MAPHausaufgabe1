@@ -26,6 +26,11 @@ class RechnerTest {
         ArrayList<Integer> zahlEins = new ArrayList<>(Arrays.asList(8,3,0,0,0,0,0,0,0));
         ArrayList<Integer> zahlZwei = new ArrayList<>(Arrays.asList(5,4,0,0,0,0,0,0,0));
         Assertions.assertEquals(Arrays.asList(2,9,0,0,0,0,0,0,0), rechner.berechneDifferenz(zahlEins, zahlZwei));
+
+        rechner = new Rechner();
+        ArrayList<Integer> zahlEins2 = new ArrayList<>(Arrays.asList(8,7,6));
+        ArrayList<Integer> zahlZwei2 = new ArrayList<>(Arrays.asList(8,7,5));
+        Assertions.assertEquals(Arrays.asList(0,0,1), rechner.berechneDifferenz(zahlEins2, zahlZwei2));
     }
 
     @Test
